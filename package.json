@@ -20,5 +20,8 @@
   "homepage": "https://github.com/cellaware/node-moca-client#readme",
   "dependencies": {
     "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "@types/node-fetch": "^2.6.9"
   }
 }
