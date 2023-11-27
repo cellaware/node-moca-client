@@ -3,6 +3,13 @@
   "version": "0.0.1",
   "description": "MOCA Client for Node.js",
   "author": "Cellaware Technologies",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/cellaware/node-moca-client.git"
@@ -11,13 +18,6 @@
     "url": "https://github.com/cellaware/node-moca-client/issues"
   },
   "homepage": "https://github.com/cellaware/node-moca-client#readme",
-  "main": "index.js",
-  "scripts": {
-    "build": "tsc",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "license": "MIT",
   "dependencies": {
     "node-fetch": "^2.6.1"
   }
