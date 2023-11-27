@@ -1,15 +1,19 @@
 {
   "name": "moca-client",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "MOCA Client for Node.js",
   "author": "Cellaware Technologies",
+  "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
+  "keywords": [
+    "MOCA",
+    "MOCA Client"
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",

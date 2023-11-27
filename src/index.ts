@@ -175,7 +175,7 @@ export class MocaResults {
         this.rows = [];
     }
 
-    async setResults(jsonData: any) {
+    setResults(jsonData: any) {
         let metadata = jsonData['metadata'];
         let values = jsonData['values'];
 
@@ -246,7 +246,6 @@ export class MocaResults {
                 const key = this.getColumnName(j);
                 const val = this.getValueUnsafe(i, j);
 
-                // Removing null values.
                 if (val != null) {
                     publishDataStr += `${key} = '${val}'${appendAnd}`;
                 }
@@ -265,7 +264,7 @@ export class MocaResults {
     }
 }
 
-class MocaColumn {
+export class MocaColumn {
 
     name: string;
     dataType: string;
