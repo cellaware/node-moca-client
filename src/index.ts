@@ -15,7 +15,7 @@ export class MocaConnection {
         this.envXmlStr = '';
     }
 
-    private async sendRequest(requestBody: any) {
+    private async sendRequest(requestBody: any): Promise<MocaResponse> {
         if (this.url === undefined || this.url.length === 0) {
             throw new Error('Invalid URL');
         }
@@ -36,7 +36,7 @@ export class MocaConnection {
         return new MocaResponse(res.headers, JSON.parse(body));
     }
 
-    async executeCommand(command: string) {
+    async executeCommand(command: string): Promise<MocaResponse> {
 
         if (command === undefined || command.length === 0) {
             command = 'noop';
@@ -61,7 +61,7 @@ export class MocaConnection {
         return mocaResponse;
     }
 
-    async login() {
+    async login(): Promise<MocaResponse> {
 
         this.envXmlStr = '';
         let loginCommand = `login user where usr_id = '${this.userId}' and usr_pswd = '${this.password}'`;
@@ -81,7 +81,7 @@ export class MocaConnection {
         return mocaResponse;
     }
 
-    async logout() {
+    async logout(): Promise<MocaResponse> {
         return this.executeCommand(`logout user where usr_id = '${this.userId}'`);
     }
 
