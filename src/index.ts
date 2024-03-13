@@ -219,7 +219,7 @@ export class MocaResults {
         }
     }
 
-    toJsonStr(): any {
+    toJson(): any[] {
         let arr = [];
         for (let i = 0; i < this.rows.length; i++) {
             let obj: any = {};
@@ -228,7 +228,11 @@ export class MocaResults {
             }
             arr.push(obj);
         }
-        return JSON.stringify(arr);
+        return arr;
+    }
+
+    toJsonStr(): string {
+        return JSON.stringify(this.toJson());
     }
 
     toPublishDataStr(): string {
