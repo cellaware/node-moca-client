@@ -163,6 +163,10 @@ export class MocaResponse {
     eOk(): boolean {
         return this.status === '0';
     }
+
+    noData(): boolean {
+        return !this.eOk() || this.results.getRowCount() === 0;
+    }
 }
 
 export class MocaResults {
@@ -184,6 +188,10 @@ export class MocaResults {
         }
 
         this.rows = values;
+    }
+
+    getRowCount(): number {
+        return this.rows.length;
     }
 
     getColumnName(columnIdx: number): string {
