@@ -190,6 +190,10 @@ export class MocaResults {
         this.rows = values;
     }
 
+    getColumnCount(): number {
+        return this.columns.length;
+    }
+
     getRowCount(): number {
         return this.rows.length;
     }
@@ -241,6 +245,40 @@ export class MocaResults {
 
     toJsonStr(): string {
         return JSON.stringify(this.toJson());
+    }
+
+    rowsToString(showColumns: boolean): string {
+
+        let buf = '';
+
+        if (this.getRowCount() === 0) {
+            return buf;
+        }
+
+        if (showColumns) {
+            for (const col of this.columns) {
+                buf += `${col.name}, `;
+            }
+            buf = buf.substring(0, buf.lastIndexOf(', '));
+            buf += '\n';
+        }
+
+        for (let i = 0; i < this.getRowCount(); i++) {
+            for (let j = 0; j < this.getColumnCount(); j++) {
+                let val = this.getValueUnsafe(i, j);
+                if (val instanceof Date) {
+                    const dteStr = val.toISOString();
+                    buf += `${dteStr.substring(0, dteStr.lastIndexOf('.'))}`;
+                } else {
+                    buf += `${val}`;
+                }
+                buf += ', ';
+            }
+            buf = buf.substring(0, buf.lastIndexOf(', '));
+            buf += '\n';
+        }
+
+        return buf;
     }
 
     toPublishDataStr(): string {
