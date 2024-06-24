@@ -1,6 +1,6 @@
 {
   "name": "moca-client",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "MOCA Client for Node.js",
   "author": "Cellaware Technologies",
   "type": "module",
