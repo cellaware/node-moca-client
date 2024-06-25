@@ -1,14 +1,11 @@
 {
   "name": "moca-client",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "MOCA Client for Node.js",
   "author": "Cellaware Technologies",
   "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": [
-    "src"
-  ],
   "scripts": {
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
