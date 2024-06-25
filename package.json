@@ -1,6 +1,6 @@
 {
   "name": "moca-client",
-  "version": "2.0.3",
+  "version": "3.0.0",
   "description": "MOCA Client for Node.js",
   "author": "Cellaware Technologies",
   "type": "module",
@@ -24,7 +24,6 @@
   },
   "homepage": "https://github.com/cellaware/node-moca-client#readme",
   "dependencies": {
-    "antlr4": "^4.13.1-patch-1",
     "node-fetch": "^2.6.1"
   },
   "devDependencies": {
