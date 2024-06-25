@@ -37,7 +37,6 @@ export class MocaCompilationResult {
     mocasqlCompilationResults: Map<number, MocaSqlCompilationResult>;
 
     constructor(script: string, changes: Change[], prev: MocaCompilationResult | null) {
-        console.log('COMPILING MOCA');
         this.script = script;
         this.tokens = MocaCompiler.lex(script);
         this.parser = new MocaParser(new CommonTokenStream(new MocaLexer(new CharStream(script))));
@@ -80,7 +79,6 @@ export class MocaCompilationResult {
                             if (sqlScript.length > 2) {
                                 // Remove '[' & ']'.
                                 sqlScript = sqlScript.substring(1, sqlScript.length - 1);
-                                console.log('COMPILING SQL');
                                 this.mocasqlCompilationResults.set(embeddedRange.id, MocaSqlCompiler.compile(sqlScript, embeddedRange.range));
                             }
                         } else if (embeddedRange.ctx === 'groovy') {

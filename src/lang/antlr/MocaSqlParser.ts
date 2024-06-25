@@ -29315,9 +29315,6 @@ export class PredicateContext extends ParserRuleContext {
 	public IN(): TerminalNode {
 		return this.getToken(MocaSqlParser.IN, 0);
 	}
-	public expression_list(): Expression_listContext {
-		return this.getTypedRuleContext(Expression_listContext, 0) as Expression_listContext;
-	}
 	public LIKE(): TerminalNode {
 		return this.getToken(MocaSqlParser.LIKE, 0);
 	}
