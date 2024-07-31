@@ -1,4 +1,4 @@
-
+import fs from 'fs';
 import fetch from 'node-fetch';
 
 export class MocaConnection {
@@ -179,7 +179,7 @@ export class MocaResults {
         this.rows = [];
     }
 
-    setResults(jsonData: any) {
+    setResults(jsonData: { metadata: any[], values: any[] }) {
         let metadata = jsonData['metadata'];
         let values = jsonData['values'];
 
@@ -245,6 +245,37 @@ export class MocaResults {
 
     toJsonStr(): string {
         return JSON.stringify(this.toJson());
+    }
+
+    toCSV(): string {
+
+        let buf = '';
+
+        for (let i = 0; i < this.columns.length; i++) {
+            const nam = this.columns[i].name;
+            if (i < this.columns.length - 1) {
+                buf += `${nam},`;
+            } else {
+                buf += `${nam}\n`;
+            }
+        }
+
+        for (let i = 0; i < this.rows.length; i++) {
+            for (let j = 0; j < this.columns.length; j++) {
+                const val = this.getValueUnsafe(i, j);
+                if (j < this.columns.length - 1) {
+                    buf += `${val},`;
+                } else {
+                    buf += `${val}\n`;
+                }
+            }
+        }
+
+        return buf;
+    }
+
+    writeCSV(path: string) {
+        fs.writeFileSync(path, this.toCSV());
     }
 
     rowsToString(showColumns: boolean): string {
