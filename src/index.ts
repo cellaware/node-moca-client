@@ -1,5 +1,3 @@
-import fs from 'fs';
-import fetch from 'node-fetch';
 
 export class MocaConnection {
 
@@ -247,7 +245,7 @@ export class MocaResults {
         return JSON.stringify(this.toJson());
     }
 
-    toCSV(): string {
+    toCSVStr(): string {
 
         let buf = '';
 
@@ -272,10 +270,6 @@ export class MocaResults {
         }
 
         return buf;
-    }
-
-    writeCSV(path: string) {
-        fs.writeFileSync(path, this.toCSV());
     }
 
     rowsToString(showColumns: boolean): string {
